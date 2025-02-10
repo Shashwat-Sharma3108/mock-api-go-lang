@@ -59,7 +59,7 @@ DB_NAME=MOCK_DB
     ```
 2. Stop the containers:
     ```sh
-    docker-compose down
+    docker-compose down --remove-orphans
     ```
 
 ## API Endpoints

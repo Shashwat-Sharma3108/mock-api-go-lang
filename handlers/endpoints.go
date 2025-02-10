@@ -52,29 +52,6 @@ func UploadMockEndpoint(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// func UploadMockEndpoint(w http.ResponseWriter, r *http.Request) {
-// 	var endpoint models.Endpoint
-// 	if err := json.NewDecoder(r.Body).Decode(&endpoint); err != nil {
-// 		// fmt.Println(">>>>>>>>", err)
-// 		http.Error(w, "Invalid JSON", http.StatusBadRequest)
-// 		return
-// 	}
-
-// 	endpoint.CreatedAt = time.Now()
-// 	collection := config.GetCollection("endpoints")
-
-// 	result, err := collection.InsertOne(context.TODO(), endpoint)
-// 	if err != nil {
-// 		http.Error(w, "Failed to save endpoint", http.StatusInternalServerError)
-// 		return
-// 	}
-
-// 	json.NewEncoder(w).Encode(map[string]interface{}{
-// 		"message": "Endpoint registered",
-// 		"id":      result.InsertedID,
-// 	})
-// }
-
 // ListMockEndpoints fetches all registered mock endpoints
 func ListMockEndpoints(w http.ResponseWriter, r *http.Request) {
 	collection := config.GetCollection("endpoints")
