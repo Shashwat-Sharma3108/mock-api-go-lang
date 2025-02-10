@@ -1,0 +1,42 @@
+[
+{
+    "url": "/cartoons/tom-and-jerry",
+    "method": "GET",
+    "response": {
+    "title": "Tom and Jerry",
+    "year": 1940,
+    "characters": ["Tom", "Jerry", "Spike"],
+    "genre": "Comedy"
+    }
+},
+{
+    "url": "/cartoons/scooby-doo",
+    "method": "GET",
+    "response": {
+    "title": "Scooby-Doo",
+    "year": 1969,
+    "characters": ["Scooby-Doo", "Shaggy", "Velma", "Daphne", "Fred"],
+    "genre": "Mystery"
+    }
+},
+{
+    "url": "/cartoons/spongebob",
+    "method": "GET",
+    "response": {
+    "title": "SpongeBob SquarePants",
+    "year": 1999,
+    "characters": ["SpongeBob", "Patrick", "Squidward", "Mr. Krabs"],
+    "genre": "Comedy"
+    }
+},
+{
+    "url": "/cartoons/looney-tunes",
+    "method": "POST",
+    "request_body": {
+    "character": "Bugs Bunny"
+    },
+    "response": {
+    "message": "Character Bugs Bunny added to Looney Tunes!"
+    }
+}
+]
