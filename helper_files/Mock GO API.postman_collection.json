@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "cc271812-4dea-4726-bcf5-3cf7dc122c81",
+		"name": "Mock GO API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31995865"
+	},
+	"item": [
+		{
+			"name": "upload config",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"url\": \"/cartoons/tom-and-jerry\",\n    \"method\": \"GET\",\n    \"response\": {\n      \"title\": \"Tom and Jerry\",\n      \"year\": 1940,\n      \"characters\": [\"Tom\", \"Jerry\", \"Spike\"],\n      \"genre\": \"Comedy\"\n    }\n  },\n  {\n    \"url\": \"/cartoons/scooby-doo\",\n    \"method\": \"GET\",\n    \"response\": {\n      \"title\": \"Scooby-Doo\",\n      \"year\": 1969,\n      \"characters\": [\"Scooby-Doo\", \"Shaggy\", \"Velma\", \"Daphne\", \"Fred\"],\n      \"genre\": \"Mystery\"\n    }\n  }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list endpoint",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3002/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "access-new-routes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3002/cartoons/tom-and-jerry",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"cartoons",
+						"tom-and-jerry"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete dynamic endpoints",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3002/delete/67a950809ff0ba294f3b0d0d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"delete",
+						"67a950809ff0ba294f3b0d0d"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

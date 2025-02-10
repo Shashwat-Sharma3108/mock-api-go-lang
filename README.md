@@ -2,24 +2,50 @@
 
 This project is a **Mock API Server** built with **Go (Golang)** and **MongoDB**. It allows you to define custom API endpoints dynamically, store them in MongoDB, and serve mock responses based on the stored configurations.
 
+## Overview
+The Mock API Server is a Golang-based server that allows developers to create and manage mock API endpoints dynamically. It integrates with MongoDB for persistent storage of endpoints and includes a frontend for managing mock APIs.
+
+
 ## Features
 - **Dynamic API Routing**: Define API endpoints dynamically.
 - **MongoDB Storage**: Store and retrieve mock API configurations.
 - **File Upload Support**: Upload mock routes via JSON files.
 - **Dockerized Deployment**: Run the project using Docker and Docker Compose.
+- **Frontend**: A React-based frontend for easy management
 
 ## Project Structure
 ```
 mock-api-server/
-│── config/         # Configuration for database and environment variables
-│── handlers/       # API endpoint handlers
-│── middlewares/    # Logging and request-handling middleware
-│── models/         # Data models
-│── routes/         # Router setup
-│── main.go         # Main entry point
-│── Dockerfile      # Docker configuration
-│── docker-compose.yml # Docker Compose configuration
-│── README.md       # Project documentation
+├── Dockerfile
+├── README.md
+├── config
+│   └── db.go
+├── docker-compose.yml
+├── go.mod
+├── go.sum
+├── handlers
+│   └── endpoints.go
+├── helper_files
+│   ├── Mock GO API.postman_collection.json
+│   └── mock_routes.json
+├── main.go
+├── middlewares
+│   └── logging.go
+├── mock_server_frontend
+│   ├── Dockerfile
+│   ├── README.md
+│   ├── index.html
+│   ├── package.json
+│   ├── public
+│   ├── src
+│   ├── tailwind.config.js
+│   ├── vite.config.js
+│   └── yarn.lock
+├── models
+│   ├── endpoints.go
+│   └── request_log.go
+└── routes
+    └── router.go
 ```
 
 ## Prerequisites
@@ -97,15 +123,22 @@ DB_NAME=MOCK_DB
     "genre": "Comedy"
   }
   ```
+### 3. Delete a Mock API
+- **Example Request**:
+  ```sh
+  curl -X DELETE http://localhost:3002/{id}/
+  ```
 
 ## Troubleshooting
 ### "Invalid WriteHeader code 0" Error
 - Ensure that all mock endpoints have a valid `status_code` (e.g., `200`).
 - Update the `ServeMockEndpoint` function to use a default status code if `0` is found.
 
+## Technologies Used
+- Backend: Golang (mux, MongoDB driver)
+- Database: MongoDB
+- Frontend: React, Vite, Tailwind CSS
+- Containerization: Docker, Docker Compose
+
 ## Contributing
 Feel free to submit issues and pull requests to improve this project!
-
-## License
-This project is licensed under the MIT License.
-

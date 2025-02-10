@@ -10,6 +10,7 @@ import (
 	"mock-api-server/routes"
 
 	"github.com/joho/godotenv"
+	"github.com/rs/cors"
 )
 
 func main() {
@@ -25,6 +26,14 @@ func main() {
 	// Set up routes
 	r := routes.SetupRoutes()
 
+	// Enable CORS
+	corsHandler := cors.New(cors.Options{
+		AllowedOrigins:   []string{"*"}, // Change this to specific origins if needed
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowedHeaders:   []string{"Content-Type", "Authorization"},
+		AllowCredentials: true,
+	})
+
 	// Get server port from environment
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -33,5 +42,5 @@ func main() {
 
 	// Start server
 	fmt.Printf("🚀 Server running on port %s\n", port)
-	log.Fatal(http.ListenAndServe(":"+port, r))
+	log.Fatal(http.ListenAndServe("0.0.0.0:"+port, corsHandler.Handler(r)))
 }
